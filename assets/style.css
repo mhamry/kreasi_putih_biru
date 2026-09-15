@@ -104,7 +104,7 @@ body {
 }
 
 .start {
-  background-color: #2d0000;
+  background-color: #2a835f;
   color: white;
 }
 
@@ -285,7 +285,7 @@ body {
 .halaman-muka .mulaiBtn {
   width: 200px;
   height: 50px;
-  background-color: #df301c;
+  background-color: #2a835f;
   border-radius: 10px;
   justify-content: center;
   align-items: center;
