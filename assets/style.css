@@ -7,7 +7,7 @@
 body {
   overflow: hidden;
   font-family: Arial, sans-serif;
-  background-image: url(../assets/bg_desktop_satu.png);
+  background-image: url(../assets/image/bg_desktop_satu.png);
   background-size: cover;
   background-position: center;
   background-color: beige;
@@ -218,7 +218,7 @@ body {
   height: 100vh;
   flex-direction: column;
   text-align: center;
-  background-image: url(../assets/bg_desktop_satu.png);
+  background-image: url(../assets/image/bg_desktop_satu.png);
   background-size: cover;
   background-position: center;
 }
@@ -435,7 +435,7 @@ body {
 @media (min-width: 561px) and (max-width: 1024px) {
   body {
     overflow: auto;
-    background-image: url(../assets/bg_hp.png);
+    background-image: url(../assets/image/bg_hp.png);
     background-size: cover;
     background-position: center;
   }
@@ -563,7 +563,7 @@ body {
   body {
     overflow: auto;
     font-family: Arial, sans-serif;
-    background-image: url(../assets/bg_hp.png);
+    background-image: url(../assets/image/bg_hp.png);
     background-size: cover;
     background-position: center;
   }
@@ -647,7 +647,7 @@ body {
   }
 
   .halaman-muka {
-    background-image: url(../assets/bg_hp.png);
+    background-image: url(../assets/image/bg_hp.png);
     background-size: cover;
     background-position: center;
   }
@@ -686,7 +686,7 @@ body {
   }
 
   .halaman-muka small {
-    font-weight: lighter;
+    font-family: Arial, sans-serif;
     font-size: 16px;
     color: aliceblue;
   }
