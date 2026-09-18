@@ -22,6 +22,12 @@ const materiPembelajaran = document.querySelector(".materi-pembelajaran");
 const backBtns = document.querySelectorAll(".backBtn");
 const mulaiBtn = document.querySelector(".mulaiBtn");
 const questionText = document.querySelector(".question-box h3");
+const scoreElement = document.querySelector("#score");
+const spinCountElement = document.querySelector("#spin-count");
+const success = document.querySelector(".success");
+const successBtn = document.querySelector(".successBtn");
+const fail = document.querySelector(".fail");
+const failBtn = document.querySelector(".failBtn");
 
 //aktifkan audio narasi
 let narrationPlaying = false;
@@ -87,6 +93,10 @@ let accelerating = false;
 let decelerating = false;
 let gameRunning = false;
 
+let score = 0;
+let spinCount = 0;
+const maxSpin = 5;
+
 // speech recognition
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -150,13 +160,35 @@ const start = startBtn.addEventListener("click", () => {
     return;
   }
 
+  // BATAS 20 PUTARAN
+  if (spinCount >= maxSpin) {
+    statusElement.textContent = "🎉 Game over!";
+    correctAnswerElement.textContent = "";
+    answerElement.textContent = "";
+    questionElement.textContent = "";
+    questionText.style.display = "none";
+
+    startBtn.disabled = true;
+    stopBtn.disabled = true;
+
+    setTimeout(() => {
+      checkFinalscore();
+    }, 3000);
+
+    return;
+  }
+
+  // Tambah jumlah putaran
+  spinCount++;
+  updateScore();
+
   gameRunning = true;
   accelerating = true;
   decelerating = false;
   speed = 0;
 
   questionElement.textContent = "The wheel is spinning...";
-  statusElement.textContent = "Click STOP and Answer the Question!";
+  statusElement.textContent = " Click STOP and Answer the Question!";
   answerElement.textContent = "";
   correctAnswerElement.textContent = "";
   questionText.style.display = "none";
@@ -399,6 +431,10 @@ function checkAnswer(userAnswer, correctAnswer) {
 
   // JAWABAN BENAR
   if (user === correct || isSimilarAnswer(user, correct)) {
+    score += 100;
+    updateScore();
+    checkFinalscore();
+
     statusElement.textContent = "🎉 CORRECT!";
     audioBenar.play();
     audioSalah.volume = 1;
@@ -499,3 +535,78 @@ mulaiBtn.addEventListener("click", function () {
   game.style.display = "flex";
   narationBtn.style.display = "block";
 });
+
+//game ifo
+function updateScore() {
+  scoreElement.textContent = score;
+  spinCountElement.textContent = spinCount;
+}
+scoreElement.textContent = score;
+spinCountElement.textContent = spinCount;
+
+function checkFinalscore() {
+  if (score >= 400) {
+    success.style.display = "flex";
+    game.style.display = "none";
+    narationBtn.style.display = "none";
+  } else {
+    fail.style.display = "flex";
+    game.style.display = "none";
+    narationBtn.style.display = "none";
+  }
+}
+
+//halaman success
+successBtn.addEventListener("click", function () {
+  success.style.display = "none";
+  resetGame();
+  halamanMuka.style.display = "flex";
+});
+
+//halaman fail
+failBtn.addEventListener("click", function () {
+  fail.style.display = "none";
+  resetGame();
+  halamanMuka.style.display = "flex";
+});
+
+function resetGame() {
+  // Reset skor
+  score = 0;
+
+  // Reset jumlah putaran
+  spinCount = 0;
+
+  // Reset status spinner
+  gameRunning = false;
+  accelerating = false;
+  decelerating = false;
+  speed = 0;
+
+  // Hentikan animasi spinner
+  cancelAnimationFrame(animationFrame);
+
+  // Reset tampilan roda
+  rotateWheel.style.transform = `rotate(0deg)`;
+  angle = 0;
+
+  // Hentikan voice recognition
+  stopVoiceRecognition();
+
+  // Reset tampilan
+  questionElement.textContent = "Click START to play";
+  statusElement.textContent = "";
+  answerElement.textContent = "";
+  correctAnswerElement.textContent = "";
+  questionText.style.display = "none";
+
+  // Aktifkan tombol
+  startBtn.disabled = false;
+  stopBtn.disabled = false;
+
+  startBtn.style.cursor = "pointer";
+  stopBtn.style.cursor = "pointer";
+
+  // Update skor dan jumlah spin
+  updateScore();
+}

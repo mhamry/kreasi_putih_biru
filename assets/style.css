@@ -151,6 +151,25 @@ body {
   min-height: 35px;
 }
 
+.game-info {
+  width: 80%;
+  margin: 8px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  gap: 20px;
+}
+.game-info div {
+  padding: 6px 10px;
+  color: black;
+  display: inline-block;
+  padding: 6px 10px;
+  background-color: aliceblue;
+  color: black;
+  border-radius: 8px;
+}
+
 #status {
   margin-top: 15px;
   font-size: 18px;
@@ -403,6 +422,71 @@ body {
   font-size: 20px;
   cursor: pointer;
   border: 2px solid white;
+}
+
+.success {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  box-shadow: 3px 3px 6px rgba(200, 100, 20, 0.4);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  text-align: center;
+  background-image: url(../assets/gif/confetti.gif);
+  background-size: cover;
+  background-color: #f5f5f5;
+  padding-top: 30px;
+  border-radius: 15px;
+  display: none;
+}
+
+.successBtn {
+  text-decoration: none;
+  font-size: 18px;
+  padding: 6px 10px;
+  background-color: aquamarine;
+  color: black;
+  margin-top: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.fail {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  box-shadow: 3px 3px 6px rgba(200, 100, 20, 0.4);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  text-align: center;
+  background-image: url(../assets/gif/kodok.gif);
+  background-size: cover;
+  background-position: bottom;
+  background-color: #f5f5f5;
+  padding-top: 30px;
+  border-radius: 15px;
+  display: none;
+}
+
+.failBtn {
+  text-decoration: none;
+  font-size: 18px;
+  padding: 6px 10px;
+  background-color: aquamarine;
+  color: black;
+  margin-top: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  cursor: pointer;
 }
 
 /* =========================

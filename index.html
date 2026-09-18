@@ -95,6 +95,10 @@
       ========================= -->
 
       <div class="question-box">
+        <div class="game-info">
+          <div>Score: <span id="score">0</span></div>
+          <div>Spin: <span id="spin-count">0</span> / 20</div>
+        </div>
         <h3>🎯 Question</h3>
         <div id="question">Click START to play</div>
         <div id="status"></div>
@@ -183,6 +187,17 @@
       <iframe src="assets/tentang_gim.pdf" frameborder="0" width="100%" height="650px"></iframe>
 
       <button class="backBtn">⬅️ Menu</button>
+    </div>
+
+    <div class="success" id="success">
+      <h2>
+        Congratulations <br /><span>You have master the lesson.</span> <br />
+        <button class="successBtn">Back to Menu</button>
+      </h2>
+    </div>
+
+    <div class="fail" id="fail">
+      <h2>You are failed. <br /><button class="failBtn">Play again</button></h2>
     </div>
 
     <script src="assets/script.js"></script>
