@@ -316,23 +316,6 @@ body {
   padding: 40px;
 }
 
-.materiPembelajaranBtn a {
-  text-decoration: none;
-  color: white;
-}
-.materiPembelajaranBtn:hover a {
-  color: black;
-}
-
-.materi-pembelajaran::after {
-  position: absolute;
-  inset: 0;
-  content: "";
-  background-color: black;
-  opacity: 0.6;
-  z-index: -1;
-}
-
 .tujuan-pembelajaran {
   position: relative;
   width: 100%;
@@ -394,13 +377,8 @@ body {
   position: relative;
   width: 70%;
   display: flex;
-  margin: 30px auto;
+  margin: 20px auto;
   display: none;
-}
-
-.tentangGimBtn a {
-  text-decoration: none;
-  color: white;
 }
 
 .tentangGimBtn a:hover {
@@ -537,11 +515,14 @@ body {
     margin-top: 40px;
   }
 
-  .materi-pembelajaran,
   .tujuan-pembelajaran,
   .cara-permainan,
   .tentang-gim {
     width: 80%;
+  }
+
+  .materi-pembelajaran {
+    width: 100%;
   }
 
   .materi-pembelajaran h2,
@@ -714,11 +695,18 @@ body {
 
   .cara-permainan,
   .materi-pembelajaran,
-  .tujuan-pembelajaran {
+  .tujuan-pembelajaran,
+  .tentang-gim {
     width: 100%;
     padding: 10px;
     padding-left: 20px;
     height: 100%;
+  }
+
+  .materi-pembelajaran,
+  .tentang-gim {
+    padding: 0;
+    margin-top: 0;
   }
 
   .content {

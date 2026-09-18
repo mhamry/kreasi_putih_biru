@@ -1,7 +1,3 @@
-// ==========================================
-// ELEMENT
-// ==========================================
-
 const rotateWheel = document.querySelector(".rotateWheel");
 const startBtn = document.querySelector(".start");
 const stopBtn = document.querySelector(".stop");
@@ -27,9 +23,7 @@ const backBtns = document.querySelectorAll(".backBtn");
 const mulaiBtn = document.querySelector(".mulaiBtn");
 const questionText = document.querySelector(".question-box h3");
 
-// ==========================================
-// Aktifkan audio naration
-// ==========================================
+//aktifkan audio narasi
 let narrationPlaying = false;
 narationBtn.addEventListener("click", () => {
   // Jika audio masih berjalan, jangan lakukan apa-apa
@@ -66,9 +60,7 @@ narationBtn.addEventListener("click", () => {
   questionElement.textContent = "";
   questionText.style.display = "none";
 
-  // ==========================================
-  // AUDIO SELESAI
-  // ==========================================
+  //audio slesai
 
   audioText.onended = () => {
     narrationPlaying = false;
@@ -85,9 +77,7 @@ narationBtn.addEventListener("click", () => {
   };
 });
 
-// ==========================================
-// ROTATION VARIABLES
-// ==========================================
+//variabel rotasi
 
 let angle = 0;
 let speed = 0;
@@ -97,9 +87,7 @@ let accelerating = false;
 let decelerating = false;
 let gameRunning = false;
 
-// ==========================================
-// SPEECH RECOGNITION
-// ==========================================
+// speech recognition
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 let recognition;
@@ -117,9 +105,7 @@ if (SpeechRecognition) {
   alert("Your browser does not support Voice Recognition. Please use Google Chrome.");
 }
 
-// ==========================================
-// ROTATE FUNCTION
-// ==========================================
+// fungsi rotate
 
 function rotate() {
   // ACCELERATING
@@ -152,10 +138,7 @@ function rotate() {
   animationFrame = requestAnimationFrame(rotate);
 }
 
-// ==========================================
 // START BUTTON
-// ==========================================
-
 const start = startBtn.addEventListener("click", () => {
   // Jangan izinkan START saat narasi berjalan
   if (narrationPlaying) {
@@ -181,10 +164,7 @@ const start = startBtn.addEventListener("click", () => {
   rotate();
 });
 
-// // ==========================================
-// // STOP BUTTON
-// // ==========================================
-
+// STOP BUTTON
 stopBtn.addEventListener("click", () => {
   // Jangan izinkan STOP saat narasi berjalan
   if (narrationPlaying) {
@@ -199,10 +179,7 @@ stopBtn.addEventListener("click", () => {
   decelerating = true;
 });
 
-// ==========================================
 // WHEN WHEEL STOPS
-// ==========================================
-
 function wheelStopped() {
   gameRunning = false;
 
@@ -229,10 +206,7 @@ function wheelStopped() {
   startVoiceRecognition(correctAnswer);
 }
 
-// ==========================================
 // MENENTUKAN SEKTOR
-// ==========================================
-
 function getSelectedSector() {
   // Normalisasi sudut
 
@@ -255,10 +229,7 @@ function getSelectedSector() {
   return index;
 }
 
-// ==========================================
 // VOICE RECOGNITION
-// ==========================================
-
 function startVoiceRecognition(correctAnswer) {
   if (!recognition) {
     return;
@@ -272,9 +243,7 @@ function startVoiceRecognition(correctAnswer) {
 
   statusElement.textContent = "🎤 Listening... Take your time and speak your answer.";
 
-  // ==========================================
   // BATAS WAKTU BERPIKIR
-  // ==========================================
 
   thinkingTimer = setTimeout(() => {
     if (!answerFinished) {
@@ -293,9 +262,7 @@ function startVoiceRecognition(correctAnswer) {
     }
   }, thinkingTime);
 
-  // ==========================================
   // ON START
-  // ==========================================
 
   recognition.onstart = () => {
     console.log("🎤 Recognition started.");
@@ -303,9 +270,7 @@ function startVoiceRecognition(correctAnswer) {
     statusElement.textContent = "🎤 Listening... Speak your answer.";
   };
 
-  // ==========================================
   // ON RESULT
-  // ==========================================
 
   recognition.onresult = (event) => {
     const result = event.results[event.results.length - 1];
@@ -322,9 +287,7 @@ function startVoiceRecognition(correctAnswer) {
       return;
     }
 
-    // ==========================================
     // SISWA SUDAH MENJAWAB
-    // ==========================================
 
     answerFinished = true;
     recognitionActive = false;
@@ -346,9 +309,7 @@ function startVoiceRecognition(correctAnswer) {
     checkAnswer(spokenText, correctAnswer);
   };
 
-  // ==========================================
   // ERROR
-  // ==========================================
 
   recognition.onerror = (event) => {
     console.log("Speech recognition error:", event.error);
@@ -375,10 +336,7 @@ function startVoiceRecognition(correctAnswer) {
     statusElement.textContent = "❌ Voice recognition error.";
   };
 
-  // ==========================================
   // ON END
-  // ==========================================
-
   recognition.onend = () => {
     console.log("🎤 Recognition ended.");
 
@@ -405,9 +363,7 @@ function startVoiceRecognition(correctAnswer) {
     }
   };
 
-  // ==========================================
   // MULAI RECOGNITION
-  // ==========================================
 
   try {
     recognition.start();
@@ -431,10 +387,7 @@ function stopVoiceRecognition() {
   }
 }
 
-// ==========================================
 // CHECK ANSWER
-// ==========================================
-
 function checkAnswer(userAnswer, correctAnswer) {
   // Normalisasi
 
@@ -444,19 +397,14 @@ function checkAnswer(userAnswer, correctAnswer) {
   console.log("User:", user);
   console.log("Correct:", correct);
 
-  // ======================================
   // JAWABAN BENAR
-  // ======================================
-
   if (user === correct || isSimilarAnswer(user, correct)) {
     statusElement.textContent = "🎉 CORRECT!";
     audioBenar.play();
     audioSalah.volume = 1;
   }
 
-  // ======================================
   // JAWABAN SALAH
-  // ======================================
   else {
     statusElement.textContent = "❌ WRONG!";
     correctAnswerElement.textContent = "Correct answer is : " + correct;
@@ -465,10 +413,7 @@ function checkAnswer(userAnswer, correctAnswer) {
   }
 }
 
-// ==========================================
 // NORMALIZE TEXT
-// ==========================================
-
 function normalizeText(text) {
   return text
     .toLowerCase()
@@ -477,9 +422,7 @@ function normalizeText(text) {
     .replace(/\s+/g, " ");
 }
 
-// ==========================================
 // SIMPLE SIMILARITY CHECK
-// ==========================================
 
 function isSimilarAnswer(user, correct) {
   /*
@@ -518,11 +461,11 @@ function isSimilarAnswer(user, correct) {
 
 //kode single page aplication
 
-// materiPembelajaranBtn.addEventListener("click", function () {
-//   halamanMuka.style.display = "none";
-//   materiPembelajaran.style.display = "block";
-//   narationBtn.style.display = "none";
-// });
+materiPembelajaranBtn.addEventListener("click", function () {
+  halamanMuka.style.display = "none";
+  materiPembelajaran.style.display = "block";
+  narationBtn.style.display = "none";
+});
 tujuanPembelajaranBtn.addEventListener("click", function () {
   halamanMuka.style.display = "none";
   tujuanPembelajaran.style.display = "block";
@@ -534,9 +477,11 @@ caraPermainanBtn.addEventListener("click", function () {
   narationBtn.style.display = "none";
 });
 
-// tentangGimBtn.addEventListener("click", function () {
-//   window.location.href = "assets/tentang_gim.pdf";
-// });
+tentangGimBtn.addEventListener("click", function () {
+  halamanMuka.style.display = "none";
+  tentangGim.style.display = "block";
+  narationBtn.style.display = "none";
+});
 
 backBtns.forEach((backBtns) => {
   backBtns.addEventListener("click", function () {
