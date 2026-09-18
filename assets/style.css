@@ -812,4 +812,12 @@ body {
     width: 300px;
     height: 300px;
   }
+
+  .game-info {
+    font-size: 12px;
+  }
+
+  .game-info div {
+    padding: 3px 8px;
+  }
 }

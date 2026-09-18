@@ -191,6 +191,7 @@ const start = startBtn.addEventListener("click", () => {
   statusElement.textContent = " Click STOP and Answer the Question!";
   answerElement.textContent = "";
   correctAnswerElement.textContent = "";
+  questionElement.textContent = "";
   questionText.style.display = "none";
 
   rotate();
@@ -433,9 +434,7 @@ function checkAnswer(userAnswer, correctAnswer) {
   if (user === correct || isSimilarAnswer(user, correct)) {
     score += 100;
     updateScore();
-    setTimeout(() => {
-      checkFinalscore();
-    }, 3000);
+    checkFinalscore();
 
     statusElement.textContent = "🎉 CORRECT!";
     audioBenar.play();
@@ -547,7 +546,7 @@ scoreElement.textContent = score;
 spinCountElement.textContent = spinCount;
 
 function checkFinalscore() {
-  if (score >= 400) {
+  if (score >= 100) {
     success.style.display = "flex";
     game.style.display = "none";
     narationBtn.style.display = "none";
