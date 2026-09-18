@@ -820,4 +820,8 @@ body {
   .game-info div {
     padding: 3px 8px;
   }
+
+  #correct-answer {
+    display: none;
+  }
 }

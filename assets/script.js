@@ -95,7 +95,7 @@ let gameRunning = false;
 
 let score = 0;
 let spinCount = 0;
-const maxSpin = 5;
+const maxSpin = 12;
 
 // speech recognition
 
@@ -170,10 +170,6 @@ const start = startBtn.addEventListener("click", () => {
 
     startBtn.disabled = true;
     stopBtn.disabled = true;
-
-    setTimeout(() => {
-      checkFinalscore();
-    }, 3000);
 
     return;
   }
@@ -434,7 +430,9 @@ function checkAnswer(userAnswer, correctAnswer) {
   if (user === correct || isSimilarAnswer(user, correct)) {
     score += 100;
     updateScore();
-    checkFinalscore();
+    setTimeout(() => {
+      checkFinalscore();
+    }, 3000);
 
     statusElement.textContent = "🎉 CORRECT!";
     audioBenar.play();
@@ -447,6 +445,9 @@ function checkAnswer(userAnswer, correctAnswer) {
     // correctAnswerElement.textContent = "Correct answer is : " + correct;
     audioSalah.play();
     audioSalah.volume = 1;
+    setTimeout(() => {
+      checkFinalscore();
+    }, 3000);
   }
 }
 
@@ -546,13 +547,13 @@ scoreElement.textContent = score;
 spinCountElement.textContent = spinCount;
 
 function checkFinalscore() {
-  if (score >= 100) {
+  if (spinCount == maxSpin && score >= 900) {
     success.style.display = "flex";
     game.style.display = "none";
     narationBtn.style.display = "none";
   }
 
-  if (spinCount >= maxSpin && score < 400) {
+  if (spinCount >= maxSpin && score < 900) {
     fail.style.display = "flex";
     game.style.display = "none";
     narationBtn.style.display = "none";
