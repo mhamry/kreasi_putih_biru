@@ -534,8 +534,8 @@ body {
 }
 
 .logo img {
-  width: 150px;
-  height: 80px;
+  width: 100%;
+  height: 100%;
   border-radius: 15px;
 }
 
@@ -544,6 +544,8 @@ body {
 .logo .logo-tiga {
   border-radius: 15px;
   overflow: hidden;
+  width: 150px;
+  height: 80px;
 }
 
 /* =========================
@@ -894,27 +896,27 @@ body {
 
   .logo {
     position: absolute;
-    width: 70%;
+    width: 80%;
     height: 40px;
     margin: 20px auto;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    top: 10px;
+    gap: 10px;
+    top: 0;
   }
 
   .logo img {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 15px;
   }
 
   .logo .logo-satu,
   .logo .logo-dua,
   .logo .logo-tiga {
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
-    width: 90px;
-    height: 40px;
+    width: 80px;
+    height: 50px;
   }
 }
