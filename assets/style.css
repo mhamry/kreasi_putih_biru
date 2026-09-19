@@ -778,7 +778,7 @@ body {
   .halaman-muka .menu-wrapper {
     width: 80%;
     height: 300px;
-    border: 1px solid red;
+    gap: 15px;
     margin: 20px auto;
   }
 
@@ -818,9 +818,6 @@ body {
     color: aliceblue;
   }
 
-  .halaman-muka .menu-wrapper {
-    gap: 15px;
-  }
   .halaman-muka .mulaiBtn {
     margin-top: 30px;
     width: 150px;
