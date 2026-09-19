@@ -897,12 +897,14 @@ body {
   .logo {
     position: absolute;
     width: 80%;
-    height: 40px;
+    height: 70px;
     margin: 20px auto;
     display: flex;
     justify-content: center;
     gap: 10px;
     top: 0;
+    border: 5px solid red;
+    align-items: center;
   }
 
   .logo img {
