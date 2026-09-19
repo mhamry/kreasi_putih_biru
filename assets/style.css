@@ -267,7 +267,8 @@ body {
 .halaman-muka .materiPembelajaranBtn,
 .halaman-muka .tujuanPembelajaranBtn,
 .halaman-muka .caraPermainanBtn,
-.halaman-muka .tentangGimBtn {
+.halaman-muka .tentangGimBtn,
+.halaman-muka .vidioDemoBtn {
   height: 50px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
   display: flex;
@@ -285,7 +286,8 @@ body {
 .halaman-muka .materiPembelajaranBtn:hover,
 .halaman-muka .tujuanPembelajaranBtn:hover,
 .halaman-muka .caraPermainanBtn:hover,
-.halaman-muka .tentangGimBtn:hover {
+.halaman-muka .tentangGimBtn:hover,
+.halaman-muka .vidioDemoBtn:hover {
   background-color: aqua;
   transform: scale(1.03);
   color: black;
@@ -404,6 +406,14 @@ body {
   color: fuchsia;
 }
 
+.vidio-demo {
+  position: relative;
+  width: 70%;
+  display: flex;
+  margin: 20px auto;
+  display: none;
+}
+
 .content {
   width: 60%;
   margin: auto;
@@ -418,10 +428,15 @@ body {
   bottom: 70px;
   padding: 8px 15px;
   border-radius: 10px;
-  background-color: greenyellow;
+  background-color: white;
   font-size: 20px;
   cursor: pointer;
-  border: 2px solid white;
+  border: 5px solid #df301c;
+  color: black;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .success {
@@ -487,6 +502,22 @@ body {
   border-radius: 10px;
   display: inline-block;
   cursor: pointer;
+}
+/* css pdf */
+.pdf-scroll-container {
+  width: 100%;
+  max-height: 600px;
+  overflow-y: auto;
+  text-align: center;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+.pdf-scroll-container canvas {
+  display: block;
+  margin: 10px auto;
+  max-width: 100%;
+  height: auto !important;
 }
 
 /* =========================
@@ -707,7 +738,7 @@ body {
 
   .backBtn {
     font-size: 12px;
-    padding: 2px 5px;
+    padding: 5px 10px;
     bottom: 15px;
     right: 15px;
   }
@@ -720,12 +751,16 @@ body {
 
   .halaman-muka .menu-wrapper {
     width: 80%;
+    height: 300px;
+    border: 1px solid red;
+    margin: 20px auto;
   }
 
   .halaman-muka .materiPembelajaranBtn,
   .halaman-muka .tujuanPembelajaranBtn,
   .halaman-muka .caraPermainanBtn,
-  .halaman-muka .tentangGimBtn {
+  .halaman-muka .tentangGimBtn,
+  .halaman-muka .vidioDemoBtn {
     padding: 5px 20px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
     display: flex;
@@ -735,7 +770,7 @@ body {
     border-radius: 10px;
     cursor: pointer;
     font-size: 13px;
-    width: 100%;
+    width: 80%;
   }
 
   .halaman-muka .materiPembelajaranBtn:hover,
@@ -762,6 +797,7 @@ body {
   }
   .halaman-muka .mulaiBtn {
     margin-top: 30px;
+    width: 150px;
   }
 
   .halaman-muka .tujuan-pembelajaran {
@@ -774,14 +810,16 @@ body {
 
   .materi-pembelajaran h2,
   .tujuan-pembelajaran h2,
-  .cara-permainan h2 {
+  .cara-permainan h2,
+  .tentang-gim h2 {
     font-size: 20px;
+    color: azure;
+    margin: 10px auto;
   }
 
   .cara-permainan,
   .materi-pembelajaran,
-  .tujuan-pembelajaran,
-  .tentang-gim {
+  .tujuan-pembelajaran {
     width: 100%;
     padding: 10px;
     padding-left: 20px;
@@ -789,11 +827,15 @@ body {
   }
 
   .materi-pembelajaran,
-  .tentang-gim {
+  .tentang-gim,
+  .vidio-demo {
     padding: 0;
     margin-top: 0;
+    width: 96%;
   }
-
+  .vidio-demo video {
+    height: 250px;
+  }
   .content {
     width: 100%;
     height: 100vh;

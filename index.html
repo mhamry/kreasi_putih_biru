@@ -112,7 +112,7 @@
           <a href="https://youtube.com/@muhammadhamri1684?si=yEngumF1t4eUVuB3"><i class="bi bi-youtube"></i></a>
         </div> -->
       </div>
-      <button class="backBtn">⬅️ Menu</button>
+      <button class="backBtn">&laquo; back</button>
     </div>
 
     <div class="halaman-muka">
@@ -121,8 +121,9 @@
       <div class="menu-wrapper">
         <div class="tujuanPembelajaranBtn">🚀 Tujuan Pembelajaran</div>
         <div class="materiPembelajaranBtn">🎓 Materi Pembelajaran</div>
-        <div class="caraPermainanBtn">📢 Cara Bermain</div>
-        <div class="tentangGimBtn">Tentang Gim</div>
+        <div class="caraPermainanBtn">📢 Panduan Gim</div>
+        <div class="tentangGimBtn">🎮 Tentang Gim</div>
+        <div class="vidioDemoBtn">📽️ Vidio Demo</div>
       </div>
       <div class="mulaiBtn">Start Game</div>
     </div>
@@ -155,17 +156,17 @@
         </ol>
       </div>
 
-      <button class="backBtn">⬅️ Menu</button>
+      <button class="backBtn">&laquo; back</button>
     </div>
 
-    <div class="materi-pembelajaran">
+    <!-- <div class="materi-pembelajaran">
       <iframe src="assets/materi_compressed.pdf" frameborder="0" width="100%" height="650px"></iframe>
-      <button class="backBtn">⬅️ Menu</button>
-    </div>
+      <button class="backBtn">&laquo; back</button>
+    </div> -->
 
     <div class="cara-permainan">
       <div class="content">
-        <h2 style="text-align: center; margin: 30px 0">PETUNJUK PERMAINAN</h2>
+        <h2 style="text-align: center; margin: 30px 0">PANDUAN GIM</h2>
         <ol>
           <li>Baca dan pahami materi pembelajaran tentang Descriptive Text dengan cara klik Tombol "Materi Pembelajaran" yang terdapat pada halaman muka.</li>
           <li>Klik Tombol "Start Game" untuk masuk ke halaman gim</li>
@@ -174,19 +175,41 @@
           <li>Ulangi kegiatan tersebut, sampai kamu memahami informasi yang terdapat pada narasi Descriptive Text.</li>
           <li>Klik Tombol "Start" untuk memutar Spinner Wheel.</li>
           <li>Klik Tombol "Stop" untuk memberhentikan Spinner Wheel.</li>
-          <li>Kemudian jawablah pertanyaan yang ditunjukkan oleh tanda panah yang ada di samping Spinner Wheel.</li>
+          <li>Kemudian jawablah pertanyaan yang ditunjukkan oleh tanda panah (Pointer) yang ada di samping Spinner Wheel.</li>
           <li>jawab pertanyaan dengan mengucapkan jawaban secara lisan.</li>
-          <li>Kilk Tombol "⬅️Menu" untuk kembali Hehalaman Muka.</li>
+          <li>Kilk Tombol "&laquo; back" untuk kembali ke halaman Muka.</li>
         </ol>
       </div>
 
-      <button class="backBtn">⬅️ Menu</button>
+      <button class="backBtn">&laquo; back</button>
     </div>
 
-    <div class="tentang-gim">
+    <!-- <div class="tentang-gim">
       <iframe src="assets/tentang_gim.pdf" frameborder="0" width="100%" height="650px"></iframe>
 
-      <button class="backBtn">⬅️ Menu</button>
+      <button class="backBtn">&laquo; back</button>
+    </div> -->
+
+    <div class="tentang-gim">
+      <h2 style="text-align: center">TENTANG GIM</h2>
+      <div id="pdf-gim" class="pdf-scroll-container"></div>
+      <button class="backBtn">&laquo; back</button>
+    </div>
+
+    <!-- Element 2: Materi Pembelajaran -->
+    <div class="materi-pembelajaran">
+      <h2 style="text-align: center; width: 100%; margin-bottom: 10px">MATERI PEMBELAJARAN</h2>
+      <div id="pdf-materi" class="pdf-scroll-container"></div>
+      <button class="backBtn">&laquo; back</button>
+    </div>
+    <div class="vidio-demo">
+      <h2 style="margin: 30px; color: aliceblue; text-align: center">VIDEO DEMO</h2>
+      <video controls width="100%" height="600px" class="videoTutorial">
+        <source src="assets/vidio/vidio flip card.mp4" type="video/mp4" />
+        Browser Anda tidak mendukung pemutaran video.
+      </video>
+
+      <button class="backBtn">&laquo; back</button>
     </div>
 
     <div class="success" id="success">
@@ -199,7 +222,7 @@
     <div class="fail" id="fail">
       <h2>You are failed. <br /><button class="failBtn">Play again</button></h2>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="assets/script.js"></script>
   </body>
 </html>

@@ -19,6 +19,9 @@ const tentangGim = document.querySelector(".tentang-gim");
 const game = document.querySelector(".game");
 const halamanMuka = document.querySelector(".halaman-muka");
 const materiPembelajaran = document.querySelector(".materi-pembelajaran");
+const vidioDemo = document.querySelector(".vidio-demo");
+const vidioDemoBtn = document.querySelector(".vidioDemoBtn");
+const vidioTutorial = document.querySelector(".videoTutorial");
 const backBtns = document.querySelectorAll(".backBtn");
 const mulaiBtn = document.querySelector(".mulaiBtn");
 const questionText = document.querySelector(".question-box h3");
@@ -520,6 +523,11 @@ tentangGimBtn.addEventListener("click", function () {
   tentangGim.style.display = "block";
   narationBtn.style.display = "none";
 });
+vidioDemoBtn.addEventListener("click", function () {
+  halamanMuka.style.display = "none";
+  vidioDemo.style.display = "block";
+  narationBtn.style.display = "none";
+});
 
 backBtns.forEach((backBtns) => {
   backBtns.addEventListener("click", function () {
@@ -528,7 +536,10 @@ backBtns.forEach((backBtns) => {
     tujuanPembelajaran.style.display = "none";
     caraPermainan.style.display = "none";
     tentangGim.style.display = "none";
+    vidioDemo.style.display = "none";
     game.style.display = "none";
+    vidioTutorial.pause();
+    vidioTutorial.currentTime = 0;
   });
 });
 
@@ -614,3 +625,40 @@ function resetGame() {
   // Update skor dan jumlah spin
   updateScore();
 }
+
+//script PDF.JS
+pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+// Fungsi Reusable untuk Render PDF
+function renderPDF(containerId, pdfUrl) {
+  const container = document.getElementById(containerId);
+
+  pdfjsLib
+    .getDocument(pdfUrl)
+    .promise.then((pdf) => {
+      for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+        pdf.getPage(pageNum).then((page) => {
+          const canvas = document.createElement("canvas");
+          const context = canvas.getContext("2d");
+          container.appendChild(canvas);
+
+          const viewport = page.getViewport({ scale: 1.5 });
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+
+          page.render({
+            canvasContext: context,
+            viewport: viewport,
+          });
+        });
+      }
+    })
+    .catch((error) => {
+      console.error(`Gagal memuat ${pdfUrl}:`, error);
+      container.innerHTML = `<p style="color:red; padding:20px;">Gagal memuat PDF (${pdfUrl})</p>`;
+    });
+}
+
+// Panggil fungsi untuk masing-masing PDF
+renderPDF("pdf-gim", "assets/tentang_gim.pdf");
+renderPDF("pdf-materi", "assets/materi_compressed.pdf");
