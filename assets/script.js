@@ -442,7 +442,7 @@ function checkAnswer(userAnswer, correctAnswer) {
   // JAWABAN SALAH
   else {
     statusElement.textContent = "❌ WRONG!";
-    // correctAnswerElement.textContent = "Correct answer is : " + correct;
+    correctAnswerElement.textContent = "Correct answer is : " + correct;
     audioSalah.play();
     audioSalah.volume = 1;
     setTimeout(() => {
