@@ -408,10 +408,23 @@ body {
 
 .vidio-demo {
   position: relative;
-  width: 70%;
+  width: 100%;
   display: flex;
-  margin: 20px auto;
+  margin: auto;
   display: none;
+  height: 100vh;
+  background-color: azure;
+}
+
+.vidio-demo video {
+  position: absolute;
+  width: 70%;
+  height: 80vh;
+  margin: auto;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 3px solid black;
 }
 
 .content {
@@ -897,5 +910,25 @@ body {
 
   .logo {
     display: none;
+  }
+
+  .vidio-demo {
+    position: relative;
+    width: 100%;
+    display: flex;
+    margin: auto;
+    display: none;
+    /* height: 100vh; */
+    background-color: azure;
+  }
+
+  .vidio-demo video {
+    position: absolute;
+    width: 95%;
+    height: 200px;
+    margin: auto;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
